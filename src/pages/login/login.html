@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="login-page">
+  <form [formGroup]="signInForm" (ngSubmit)="login(signInForm)">
+    <ion-list>
+      <ion-item text-center>
+        <ion-img width="192" height="100" src="assets/imgs/interACT-Logo.png" ></ion-img>
+      </ion-item>
+      <ion-item>
+        <ion-icon name="person" item-left></ion-icon>
+        <ion-label stacked>{{ 'login.username' | translate}}: </ion-label>
+        <ion-input formControlName="username" type="text" placeholder="{{ 'login.username' | translate}}"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-icon name="key" item-left></ion-icon>
+        <ion-label stacked>{{ 'login.password' | translate}}: </ion-label>
+        <ion-input formControlName="password" type="password" placeholder="{{ 'login.password' | translate}}"></ion-input>
+      </ion-item>
+    </ion-list>
+    <div padding>
+      <button ion-button block type="submit" [disabled]="!signInForm.valid">{{ 'login.login' | translate}}</button>
+    </div>
+  </form>
+</ion-content>

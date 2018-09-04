@@ -1,0 +1,6 @@
+{
+  "endpoint": "http://localhost:8080/interactdev/",
+  "siteKey": "",
+  "httpTimeout": "90000",
+  "animationDuration": 3000
+}
