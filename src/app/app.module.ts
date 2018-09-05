@@ -12,6 +12,7 @@ import { MyApp } from './app.component';
 import { SharedModule } from '../shared/shared.module';
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
+import { TabsPage } from "../pages/tabs/tabs";
 
 export function initConfig(config: ConfigService) {
   return () => config.load();
@@ -25,7 +26,8 @@ export function HttpLoaderFactory(http: HttpClient) {
   declarations: [
     MyApp,
     HomePage,
-    LoginPage
+    LoginPage,
+    TabsPage
   ],
   imports: [
     BrowserModule,
@@ -44,7 +46,8 @@ export function HttpLoaderFactory(http: HttpClient) {
   entryComponents: [
     MyApp,
     HomePage,
-    LoginPage
+    LoginPage,
+    TabsPage
   ],
   providers: [
     StatusBar,

@@ -5,6 +5,8 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { AuthenticationService } from '../../shared/services/authentication.service';
 import { InformationService } from '../../shared/services/information.service';
 import { HomePage } from "../home/home";
+import { TabsPage } from '../tabs/tabs';
+
 import { PermissionsService } from "../../shared/services/permissions.service";
 
 @Component({
@@ -48,7 +50,7 @@ export class LoginPage {
           this.permissionsService.setPermissions(serviceUser.id).subscribe(
             permissions => {
               if (permissions) {
-                this.nav.setRoot(HomePage);
+                this.nav.setRoot(TabsPage);
               }
             }, error => {
               console.log(error);
