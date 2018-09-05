@@ -24,8 +24,8 @@ export class InformationService {
     this.data[name] = value;
     localStorage.setItem(name, value);
   }
-   // just JSON attributes loggedUser
-  getAttributeFromData(name) {
+
+  getAttributeFromJsonData(name) {
     let result = null;
     if (this.data !== null) {
       result = this.data[name];

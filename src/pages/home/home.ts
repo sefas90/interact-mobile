@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { PermissionsService } from '../../shared/services/permissions.service';
+import { ProfilePage } from '../profile/profile';
 
 @Component({
   selector: 'page-home',
@@ -8,8 +9,9 @@ import { PermissionsService } from '../../shared/services/permissions.service';
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController,
-              ) {
+  profilePage:any = ProfilePage;
+
+  constructor(public navCtrl: NavController) {
 
   }
 }

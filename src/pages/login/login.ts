@@ -18,11 +18,11 @@ export class LoginPage {
   public username;
   public password;
 
-  constructor(public nav: NavController,
-              public authService: AuthenticationService,
-              public informationService: InformationService,
-              public permissionsService: PermissionsService,
-              public alert: AlertsService) {
+  constructor(private nav: NavController,
+              private authService: AuthenticationService,
+              private informationService: InformationService,
+              private permissionsService: PermissionsService,
+              private alert: AlertsService) {
 
     this.signInForm = new FormGroup({
       username: new FormControl(this.username, [

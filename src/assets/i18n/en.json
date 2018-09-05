@@ -7,5 +7,15 @@
     "password": "Password",
     "title": "Login Page",
     "username": "Username"
+  },
+  "profile": {
+    "title": "Profile",
+    "logout": "Logout"
+  },
+  "tabs": {
+    "home": "HOME",
+    "readParent": "READ PARENT",
+    "addChild": "ADD CHILD",
+    "sync": "SYNC"
   }
 }
