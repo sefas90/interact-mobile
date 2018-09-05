@@ -24,7 +24,7 @@ export class InformationService {
     this.data[name] = value;
     localStorage.setItem(name, value);
   }
-
+   // just JSON attributes loggedUser
   getAttributeFromData(name) {
     let result = null;
     if (this.data !== null) {
@@ -38,7 +38,7 @@ export class InformationService {
     return result;
   }
 
-  private getAttributeFromLocalStorage(name) {
+  getAttributeFromLocalStorage(name) {
     if (this.data === null) {
       this.data = {};
     }

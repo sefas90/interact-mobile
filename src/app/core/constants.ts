@@ -12,5 +12,6 @@ export const CONSTANTS = {
     INITIAL_GRID_ROWS: 'profileInitialGridRows',
     ROWS_PER_PAGE: 'rowsPerPage',
     BASE_GROUP_ID: 'baseGroupId'
-  }
+  },
+  SEPARATOR: '/'
 };

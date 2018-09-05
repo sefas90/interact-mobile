@@ -5,6 +5,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { AuthenticationService } from '../../shared/services/authentication.service';
 import { InformationService } from '../../shared/services/information.service';
 import { HomePage } from "../home/home";
+import { PermissionsService } from "../../shared/services/permissions.service";
 
 @Component({
   selector: 'page-login',
@@ -16,11 +17,14 @@ export class LoginPage {
   public username;
   public password;
 
+  private permissions;
+
   constructor(public nav: NavController,
               public formBuilder: FormBuilder,
               public translate: TranslateService,
               public authService: AuthenticationService,
-              public informationService: InformationService) {
+              public informationService: InformationService,
+              public permissionsService: PermissionsService) {
 
     this.signInForm = new FormGroup({
       username: new FormControl(this.username, [
@@ -41,7 +45,15 @@ export class LoginPage {
       this.authService.authenticateUser(signInForm.value).subscribe(
         serviceUser => {
           this.informationService.setAttributesToData(serviceUser);
-          this.nav.setRoot(HomePage);
+          this.permissionsService.setPermissions(serviceUser.id).subscribe(
+            permissions => {
+              if (permissions) {
+                this.nav.setRoot(HomePage);
+              }
+            }, error => {
+              console.log(error);
+            }
+          );
         }, error => {
           console.log(error);
         }

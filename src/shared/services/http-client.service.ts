@@ -16,51 +16,51 @@ export class HttpClientService {
   }
 
   createAuthorizationHeader(headers: HttpHeaders) {
-    const user = this.informationService.getAttributeFromData('user');
-    if (user === null) {
+    const token = this.informationService.getAttributeFromLocalStorage('token');
+    if (token === null) {
       return headers;
     }
 
-    headers.append('Authorization', 'Bearer ' + user.token);
-    headers.append('Content-Type', 'application/json');
+    headers = headers.append('X-Authorization', 'Bearer ' + token);
+    return headers;
   }
 
 
   get(url) {
-    const headers = new HttpHeaders();
-    this.createAuthorizationHeader(headers);
+    let headers = new HttpHeaders();
+    headers = this.createAuthorizationHeader(headers);
     return this.http.get(this.urlBase + url, {
       headers: headers
     });
   }
 
   post(url, data) {
-    const headers = new HttpHeaders();
-    this.createAuthorizationHeader(headers);
+    let headers = new HttpHeaders();
+    headers = this.createAuthorizationHeader(headers);
     return this.http.post(this.urlBase + url, data, {
       headers: headers
     });
   }
 
   patch(url, data) {
-    const headers = new HttpHeaders();
-    this.createAuthorizationHeader(headers);
+    let headers = new HttpHeaders();
+    headers = this.createAuthorizationHeader(headers);
     return this.http.patch(this.urlBase + url, data, {
       headers: headers
     });
   }
 
   put(url, data) {
-    const headers = new HttpHeaders();
-    this.createAuthorizationHeader(headers);
+    let headers = new HttpHeaders();
+    headers = this.createAuthorizationHeader(headers);
     return this.http.put(this.urlBase + url, data, {
       headers: headers
     });
   }
 
   delete(url) {
-    const headers = new HttpHeaders();
-    this.createAuthorizationHeader(headers);
+    let headers = new HttpHeaders();
+    headers = this.createAuthorizationHeader(headers);
     return this.http.delete(this.urlBase + url, {
       headers: headers
     });
