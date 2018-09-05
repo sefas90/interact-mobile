@@ -8,6 +8,7 @@ import { HttpClientService } from './services/http-client.service';
 import { PermissionsService } from './services/permissions.service';
 import { AuthenticationService } from './services/authentication.service';
 import { InformationService } from "./services/information.service";
+import { AlertsService } from "./services/alerts.service";
 
 @NgModule({
   imports: [
@@ -22,7 +23,8 @@ import { InformationService } from "./services/information.service";
     HttpClientService,
     PermissionsService,
     AuthenticationService,
-    InformationService
+    InformationService,
+    AlertsService
   ],
   exports: [
     TranslateModule
