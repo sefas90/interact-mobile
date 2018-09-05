@@ -7,5 +7,11 @@
     "password": "Password",
     "title": "Login Page",
     "username": "Username"
+  },
+  "tabs": {
+    "home": "HOME",
+    "readParent": "READ PARENT",
+    "addChild": "ADD CHILD",
+    "sync": "SYNC"
   }
 }
