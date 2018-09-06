@@ -7,6 +7,7 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { ConfigService } from '../config.service';
+import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 
 import { MyApp } from './app.component';
 import { SharedModule } from '../shared/shared.module';
@@ -14,6 +15,8 @@ import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
 import { TabsPage } from "../pages/tabs/tabs";
 import { ProfilePage } from "../pages/profile/profile";
+import { ParentContainerPage } from "../pages/parent-container/parent-container";
+import { ChildContainerPage } from "../pages/child-container/child-container";
 
 export function initConfig(config: ConfigService) {
   return () => config.load();
@@ -29,7 +32,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     HomePage,
     LoginPage,
     TabsPage,
-    ProfilePage
+    ProfilePage,
+    ParentContainerPage,
+    ChildContainerPage
   ],
   imports: [
     BrowserModule,
@@ -50,7 +55,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     HomePage,
     LoginPage,
     TabsPage,
-    ProfilePage
+    ProfilePage,
+    ParentContainerPage,
+    ChildContainerPage
   ],
   providers: [
     StatusBar,
@@ -65,7 +72,8 @@ export function HttpLoaderFactory(http: HttpClient) {
       useFactory: initConfig,
       deps: [ConfigService],
       multi: true
-    }
+    },
+    BarcodeScanner
   ]
 })
 export class AppModule {}

@@ -1,7 +1,7 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      {{'home.title' | translate}}
+      {{'parent.title' | translate}}
     </ion-title>
     <ion-buttons end>
       <button ion-button
@@ -13,10 +13,16 @@
     </ion-buttons>
   </ion-navbar>
 </ion-header>
-
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+  <div text-center>
+    <button ion-button icon-left color="primary" (click)="scan()">
+      <ion-icon name="qr-scanner"></ion-icon>
+      Scan
+    </button>
+
+    <button ion-button icon-left color="primary" (click)="scanWeb()">
+      <ion-icon name="qr-scanner"></ion-icon>
+      Scan web
+    </button>
+  </div>
 </ion-content>

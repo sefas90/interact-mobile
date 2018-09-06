@@ -1,4 +1,15 @@
 {
+  "child":{
+    "container": "Cont."
+  },
+  "container": {
+    "container": "Cont. #",
+    "drumSize": "Con. Size",
+    "drumType": "Con. Type",
+    "profileNumber": "Prof. #",
+    "qty": "Qty",
+    "uom": "UoM"
+  },
   "home": {
     "title": "Home"
   },
@@ -8,14 +19,17 @@
     "title": "Login Page",
     "username": "Username"
   },
+  "parent":{
+    "title": "Scan Parent Container"
+  },
   "profile": {
     "title": "Profile",
     "logout": "Logout"
   },
   "tabs": {
     "home": "HOME",
-    "readParent": "READ PARENT",
-    "addChild": "ADD CHILD",
+    "scanParent": "Scan Parent",
+    "scanChild": "Scan Child",
     "sync": "SYNC"
   }
 }

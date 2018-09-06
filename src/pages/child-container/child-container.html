@@ -1,0 +1,67 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      {{'child.container' | translate}} {{container.drumNumber}}
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button icon-left color="primary" (click)="scanWeb()">
+        <ion-icon name="qr-scanner"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <ion-grid>
+    <ion-row class="table-header">
+      <ion-col>
+        <div class="label-detail">{{'container.drumType' | translate}}</div>
+        <span>{{container.containerType}}</span>
+      </ion-col>
+      <ion-col>
+        <div class="label-detail">{{'container.drumSize' | translate}}</div>
+        {{container.containerSize}}
+      </ion-col>
+      <ion-col>
+        <div class="label-detail">{{'container.uom' | translate}}</div>
+        {{container.unitOfMeasure}}
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-grid>
+    <ion-row class="table-sub-header">
+      <ion-col col-3>
+        <div class="label-detail">{{'container.container' | translate}}</div>
+      </ion-col>
+      <ion-col col-1>
+        <div class="label-detail">{{'container.qty' | translate}}</div>
+      </ion-col>
+      <ion-col col-3>
+        <div class="label-detail">{{'container.uom' | translate}}</div>
+      </ion-col>
+      <ion-col col-2>
+        <div class="label-detail">{{'container.drumType' | translate}}</div>
+      </ion-col>
+      <ion-col col-3>
+        <div class="label-detail">{{'container.profileNumber' | translate}}</div>
+      </ion-col>
+    </ion-row>
+    <ion-row *ngFor="let container of containerList; let i = index">
+      <ion-col col-3>
+        <span>{{container.containerName}}</span>
+      </ion-col>
+      <ion-col col-1>
+        <span>{{container.quantity}}</span>
+      </ion-col>
+      <ion-col col-3>
+        <span>{{container.unitOfMeasureName}}</span>
+      </ion-col>
+      <ion-col col-2>
+        <span>{{container.drumType}}</span>
+      </ion-col>
+      <ion-col col-3>
+        <span>{{container.profileNumber}}</span>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

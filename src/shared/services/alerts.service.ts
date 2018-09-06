@@ -5,10 +5,10 @@ import { AlertController } from 'ionic-angular';
 export class AlertsService {
   constructor(public alertCtrl: AlertController) { }
 
-  doAlert(title, error) {
+  doAlert(title, message) {
     const alert = this.alertCtrl.create({
       title: title,
-      subTitle: error.message,
+      subTitle: message.message,
       buttons: ['Ok']
     });
 

@@ -34,6 +34,15 @@ export class HttpClientService {
     });
   }
 
+  customGet(url, params){
+    let headers = new HttpHeaders();
+    headers = this.createAuthorizationHeader(headers);
+    return this.http.get(this.urlBase + url, {
+      headers: headers,
+      params: params
+    });
+  }
+
   post(url, data) {
     let headers = new HttpHeaders();
     headers = this.createAuthorizationHeader(headers);
