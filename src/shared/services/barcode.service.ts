@@ -28,10 +28,6 @@ export class BarcodeService {
       .scan(options)
       .then((data) => {
         this.barcodeData = data;
-        let message = {
-          message: JSON.stringify(this.barcodeData)
-        };
-        this.alert.doAlert('Scan Results', message);
       })
       .catch((error) => {
         this.alert.doAlert('Alert!', error);

@@ -1,5 +1,5 @@
 {
-  "endpoint": "http://localhost:8080/interactdev/",
+  "endpoint": "http://147.75.203.187:8181/interactdev/",
   "siteKey": "",
   "httpTimeout": "90000",
   "animationDuration": 3000

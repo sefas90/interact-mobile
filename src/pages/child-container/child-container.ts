@@ -44,10 +44,23 @@ export class ChildContainerPage {
     const searchParams = {
       containerNumber: this.barcodeData.text
     };
-    this.containerService.searchContainer(searchParams).subscribe(
+    this.containerService.searchAllContainers(searchParams).subscribe(
       response => {
-        let container = _.find(response, {containerName: searchParams.containerNumber});
-        this.containerList.push(container);
+        let canAdd = false;
+        let container = _.find(response, {containerNumber: searchParams.containerNumber});
+        this.alert.doAlert('container', {message: container});
+        _.forEach(this.containerList, function (containerList) {
+          canAdd = !_.isEqual(_.get(containerList, 'id'), _.get(container, 'id'));
+          return canAdd;
+        });
+        if (canAdd) {
+          this.containerList.push(container);
+        } else {
+          const message = {
+            message: 'container already in parent container'
+          };
+          this.alert.doAlert('Error', message);
+        }
       }, error => {
         console.log(error);
       }

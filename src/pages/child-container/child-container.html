@@ -4,6 +4,11 @@
       {{'child.container' | translate}} {{container.drumNumber}}
     </ion-title>
     <ion-buttons end>
+      <button ion-button icon-left color="secondary" (click)="scan()">
+        <ion-icon name="qr-scanner"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-buttons end>
       <button ion-button icon-left color="primary" (click)="scanWeb()">
         <ion-icon name="qr-scanner"></ion-icon>
       </button>

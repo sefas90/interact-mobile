@@ -4,6 +4,9 @@ import { BarcodeService } from "../../shared/services/barcode.service";
 import { ContainerService } from "../../shared/services/container.service";
 import { ChildContainerPage } from "../child-container/child-container";
 import { ProfilePage } from "../profile/profile";
+
+import { AlertsService } from "../../shared/services/alerts.service";
+
 import * as _ from 'lodash';
 
 @IonicPage()
@@ -18,11 +21,13 @@ export class ParentContainerPage {
   constructor(private nav: NavController,
               private navParams: NavParams,
               private barcodeService: BarcodeService,
-              private containerService: ContainerService) {
+              private containerService: ContainerService,
+              private alert: AlertsService) {
   }
 
   scan() {
     this.barcodeData = this.barcodeService.scan();
+    this.alert.doAlert('data', {message: this.barcodeData});
     const searchParams = {
       containerNumber: this.barcodeData.text
     };
@@ -44,7 +49,6 @@ export class ParentContainerPage {
     this.containerService.searchContainer(searchParams).subscribe(
       response => {
         this.container = _.find(response.result, {drumName: searchParams.containerNumber});
-        console.log(this.container);
         this.nav.push(ChildContainerPage, {container: this.container});
       }, error => {
         console.log(error);
